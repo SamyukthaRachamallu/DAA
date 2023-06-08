@@ -1,0 +1,58 @@
+#include<stdio.h>
+int main()
+{
+	int a[10][10],b[10][10],c[10][10],i,j,n,m,l,k;
+	int m1, m2, m3, m4 , m5, m6, m7;
+	printf("enter no of rows in matrix a: ");
+	scanf("%d",&n);
+	printf("enter no of columns in matrix a: ");
+	scanf("%d",&m);
+	printf("enter no of rows in matrix b: ");
+	scanf("%d",&l);
+	printf("enter no of columns in matrix b: ");
+	scanf("%d",&k);
+	if(m==l)
+	{
+		printf("enter the elements in matrix a:");
+		for(i=0;i<n;i++)
+		{
+			for(j=0;j<m;j++)
+			{
+				scanf("%d",&a[i][j]);
+			}
+		}
+		printf("enter the elements in matrix b:");
+		for(i=0;i<n;i++)
+		{
+			for(j=0;j<m;j++)
+			{
+				scanf("%d",&b[i][j]);
+			}
+		}
+	m1= (a[0][0] + a[1][1]) * (b[0][0] + b[1][1]);
+    m2= (a[1][0] + a[1][1]) * b[0][0];
+    m3= a[0][0] * (b[0][1] - b[1][1]);
+    m4= a[1][1] * (b[1][0] - b[0][0]);
+    m5= (a[0][0] + a[0][1]) * b[1][1];
+    m6= (a[1][0] - a[0][0]) * (b[0][0]+b[0][1]);
+    m7= (a[0][1] - a[1][1]) * (b[1][0]+b[1][1]);
+ 
+    c[0][0] = m1 + m4- m5 + m7;
+    c[0][1] = m3 + m5;
+    c[1][0] = m2 + m4;
+    c[1][1] = m1 - m2 + m3 + m6;
+    for(i=0;i<n;i++)
+    {
+    	for(j=0;j<m;j++)
+    	{
+    		printf("%d\t",c[i][j]);
+		}
+		ptintf("\n");
+	}
+ }
+ else
+ {
+ 	printf("multiplication is not possible.");
+ }
+	
+}
